@@ -1,7 +1,7 @@
-import { faAutoprefixer } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faHome, faList, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Avatar, Box, Button, Divider, IconButton, makeStyles, Menu, MenuItem, Tooltip, useMediaQuery } from '@mui/material';
+import { Avatar, Box, Button, Divider, IconButton, Menu, MenuItem, Tooltip, useMediaQuery } from '@mui/material';
+import { makeStyles } from '@mui/styles';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -25,16 +25,12 @@ const Header = () => {
   const { headerButton } = headerStyles();
   return (
     <Box sx={{ position: 'sticky', top: 0, zIndex: 1100 }}>
-      <Box sx={{ color: 'black', bgcolor: 'white', borderBottom: '2px solid black', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <Box sx={{ color: 'black', bgcolor: '#f8f8f8', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <Link to="/">
-          <Box sx={{ px: 1, py: 1, fontSize: 24, bgcolor: 'black', color: 'white', clipPath: 'polygon(0% 0%, 100% 0%, 75% 100%, 0% 100%)', pr: 6 }}>
+          <Box sx={{ px: 1, py: 3, fontSize: 24, pr: 6 }}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
               <Box sx={{ fontSize: '37px' }}>
-                <FontAwesomeIcon icon={faAutoprefixer} />
-              </Box>
-              <Box>
-                <Box sx={{ fontSize: '15px', letterSpacing: '2.4px' }}>EXPRESS</Box>
-                <Box sx={{ fontSize: '20px', letterSpacing: '9px' }}>AUTO</Box>
+                7eCom
               </Box>
             </Box>
           </Box>
@@ -46,11 +42,6 @@ const Header = () => {
               <Link to="/"><Button className={headerButton}>Home</Button></Link>
               <Link to="/explore"><Button className={headerButton}>Explore</Button></Link>
               <Link to="/login"><Button className={headerButton}>Login</Button></Link>
-              {/* <>
-                <Link to="/dashboard/myOrders"><Button className={headerButton}>Dashboard</Button></Link>
-                <Box sx={{ px: 1, fontWeight: 500 }}>Name</Box>
-                <Button className={headerButton} onClick={handleLogOut}>Logout</Button>
-              </> */}
             </Box>
           }
           {
