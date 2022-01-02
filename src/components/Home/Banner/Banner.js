@@ -20,7 +20,7 @@ const homeMainBannerPicture3 = 'http://lezada.reactdemo.hasthemes.com/assets/ima
 const Banner = () => {
   const matches960px = useMediaQuery('(min-width:960px)');
   return (
-    <Box sx={{py: 4, minHeight: '70vh', maxHeight: '70vh', bgcolor: 'rgb(235, 244, 242)'}}>
+    <Box sx={{py: 4, bgcolor: 'rgb(235, 244, 242)', boxSizing: 'border-box'}}>
       <Swiper
         slidesPerView={1}
         spaceBetween={30}
@@ -37,11 +37,11 @@ const Banner = () => {
       >
         {/* Slider Number 01 */}
         <SwiperSlide>
-          <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '70vh', maxHeight: '70vh'}}>
             <Box>
               <Box sx={{p: 6}}>
                 <Box sx={{display: 'flex', alignItems: 'center'}}>
-                  <Box sx={{width: '100%'}}>
+                  <Box sx={{maxWidth: '50%'}}>
                     <Box sx={{textTransform: 'uppercase'}}>Magical London Bridge with Neil Stay</Box>
                     <Typography component="h1" fontSize="47px" fontWeight="700">The Audi Premium Cars</Typography>
                     <Typography component="span" sx={{textTransform: 'uppercase', fontSize: '17', fontWeight: 300}}>The AUDI AG stands for sporty vehicles, high build quality and progressive design – for “Vorsprung durch Technik.”</Typography>
@@ -54,7 +54,7 @@ const Banner = () => {
                   {
                     matches960px
                     && (
-                      <Box sx={{width: '100%', height: '70vh'}}>
+                      <Box sx={{minheight: '70vh'}}>
                         <img src={homeMainBannerPicture1} alt="" />
                       </Box>
                     )
@@ -67,11 +67,11 @@ const Banner = () => {
         {/* Slider Number 01 */}
         {/* Slider Number 02 */}
         <SwiperSlide>
-        <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '70vh', maxHeight: '70vh'}}>
             <Box>
               <Box sx={{p: 6}}>
                 <Box sx={{display: 'flex', alignItems: 'center'}}>
-                  <Box sx={{width: '100%'}}>
+                  <Box sx={{maxWidth: '50%'}}>
                     <Box sx={{textTransform: 'uppercase'}}>Magical London Bridge with Neil Stay</Box>
                     <Typography component="h1" fontSize="47px" fontWeight="700">The Audi Premium Cars</Typography>
                     <Typography component="span" sx={{textTransform: 'uppercase', fontSize: '17', fontWeight: 300}}>The AUDI AG stands for sporty vehicles, high build quality and progressive design – for “Vorsprung durch Technik.”</Typography>
@@ -84,7 +84,7 @@ const Banner = () => {
                   {
                     matches960px
                     && (
-                      <Box sx={{width: '100%', height: '70vh'}}>
+                      <Box sx={{minheight: '70vh'}}>
                         <img src={homeMainBannerPicture2} alt="" />
                       </Box>
                     )
@@ -97,11 +97,11 @@ const Banner = () => {
         {/* Slider Number 02 */}
         {/* Slider Number 03 */}
         <SwiperSlide>
-        <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+        <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '70vh', maxHeight: '70vh'}}>
             <Box>
               <Box sx={{p: 6}}>
                 <Box sx={{display: 'flex', alignItems: 'center'}}>
-                  <Box sx={{width: '100%'}}>
+                  <Box sx={{maxWidth: '50%'}}>
                     <Box sx={{textTransform: 'uppercase'}}>Magical London Bridge with Neil Stay</Box>
                     <Typography component="h1" fontSize="47px" fontWeight="700">The Audi Premium Cars</Typography>
                     <Typography component="span" sx={{textTransform: 'uppercase', fontSize: '17', fontWeight: 300}}>The AUDI AG stands for sporty vehicles, high build quality and progressive design – for “Vorsprung durch Technik.”</Typography>
@@ -114,7 +114,7 @@ const Banner = () => {
                   {
                     matches960px
                     && (
-                      <Box sx={{width: '100%', height: '70vh'}}>
+                      <Box sx={{minheight: '70vh'}}>
                         <img src={homeMainBannerPicture3} alt="" />
                       </Box>
                     )
