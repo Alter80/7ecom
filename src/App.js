@@ -4,8 +4,37 @@ import Header from './components/Shared/Header/Header';
 import Home from './components/Home/Home/Home';
 import Footer from './components/Shared/Footer/Footer';
 import AllProducts from './components/AllProducts/AllProducts';
+import { useState } from 'react';
 
 function App() {
+  const accessToken = localStorage.getItem('accessToken');
+  const displayName = localStorage.getItem('displayName');
+  const email = localStorage.getItem('email');
+  const photoURL = localStorage.getItem('photoURL');
+  const isAdmin = localStorage.getItem('isAdmin');
+  const [loggedInUser, setLoggedInUser] = useState(accessToken ? { accessToken, displayName, email, photoURL, isAdmin } : null);
+  // const matches960px = useMediaQuery('(min-width:960px)');
+  console.log(loggedInUser);
+
+  // Store Cars
+  const [cars, setCars] = useState([]);
+  const [car, setCar] = useState([]);
+
+  const [orderInfo, setOrderInfo] = useState({
+    ownerName: loggedInUser && loggedInUser.displayName,
+    ownerEmail: loggedInUser && loggedInUser.email,
+    ownerPhoneNumber: '',
+    ownerAddress: '',
+    carId: car._id,
+    carName: car.carName,
+    carPrice: car.carPrice,
+    quantity: 1,
+    date: new Date(),
+    status: 'pending',
+  });
+  console.log("Single Package Issue", car);
+  console.log("All Packages", cars);
+  console.log("Order Info", orderInfo);
   return (
     <Router>
       <Header></Header>
