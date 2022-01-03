@@ -18,7 +18,7 @@ const Products = () => {
     , [])
 
   return (
-    <Box sx={{ flexGrow: 1, mt: 5 }} style={{ paddingTop: "100px", paddingBottom: '100px', marginLeft: "50px", marginRight: "50px" }}>
+    <Box sx={{ flexGrow: 1, mt: 5 }} style={{ paddingTop: "50px", paddingBottom: '100px', marginLeft: "5%", marginRight: "5%" }}>
       <Box>
         <Typography sx={{ fontFamily: 'Work Sans', fontWeight: "400", pb: 0, textAlign: "center", fontSize: "48px" }} variant="h3" gutterBottom component="div">Spring summer 2022
         </Typography>

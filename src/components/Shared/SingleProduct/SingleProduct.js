@@ -19,7 +19,7 @@ const SingleProduct = (props) => {
       <Card className="singleProduct" sx={{ minWidth: 275, }}>
         <CardMedia
           component="img"
-          style={{ width: "200px", height: '200px', margin: "0 auto", objectFit: "contain" }}
+          style={{ width: "200px", height: '200px', paddingTop: '20px', margin: "0 auto", objectFit: "contain" }}
           image={image}
           alt="green iguana"
         />
@@ -33,7 +33,7 @@ const SingleProduct = (props) => {
           </Typography>
           <Button style={{ color: "#666", marginBottom: "10px" }} size="small">{category}</Button>
           <Typography color="text.secondary" variant="body2">
-            {description.slice(0, 150).toString()}... See more
+            {description.slice(0, 80).toString()}... See more
           </Typography>
         </CardContent>
         <Box sx={{ display: 'flex', justifyContent: 'space-around', pt: 2 }}>

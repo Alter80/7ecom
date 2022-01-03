@@ -92,7 +92,7 @@ const ImageMarked = styled('span')(({ theme }) => ({
 const AllProducts = () => {
     return (
         <Container>
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%' }}>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', minWidth: 300, width: '100%', marginTop: '100px' }}>
                 {images.map((image) => (
                     <ImageButton
                         focusRipple
