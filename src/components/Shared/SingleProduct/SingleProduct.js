@@ -10,7 +10,7 @@ import Rating from '@mui/material/Rating';
 import './SingleProduct.css'
 
 const SingleProduct = (props) => {
-  const { title, description, image, price, _id, rating } = props.product || {};
+  const { title, description, image, price, _id, rating, category } = props.product || {};
   const handleDetails = (key) => {
 
   }
@@ -31,6 +31,7 @@ const SingleProduct = (props) => {
           <Typography variant="h5" component="div" sx={{ mb: 2 }}>
             {title.slice(0, 20).toString()}
           </Typography>
+          <Button style={{ color: "#666", marginBottom: "10px" }} size="small">{category}</Button>
           <Typography color="text.secondary" variant="body2">
             {description.slice(0, 150).toString()}... See more
           </Typography>
