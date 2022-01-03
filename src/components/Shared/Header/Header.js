@@ -1,6 +1,6 @@
 import { faBars, faHome, faList, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Avatar, Box, Button, Divider, IconButton, Menu, MenuItem, Tooltip, useMediaQuery } from '@mui/material';
+import { Avatar, Box, Button, Divider, Fade, IconButton, Menu, MenuItem, Tooltip, useMediaQuery } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -41,6 +41,32 @@ const Header = () => {
             <Box sx={{ display: "flex", alignItems: "center" }}>
               <Link to="/"><Button className={headerButton}>Home</Button></Link>
               <Link to="/explore"><Button className={headerButton}>Explore</Button></Link>
+
+              <Link to="/explore"><Button
+                className={headerButton}
+                id="fade-button"
+                aria-controls={open ? 'fade-menu' : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                onClick={handleClick}>Categories</Button></Link>
+
+              <Menu
+                id="fade-menu"
+                MenuListProps={{
+                  'aria-labelledby': 'fade-button',
+                }}
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                TransitionComponent={Fade}
+              >
+                <MenuItem onClick={handleClose}> <Link to="/mensware">Mens Cloathing </Link></MenuItem>
+                <MenuItem onClick={handleClose}> <Link to="/womensware">Womens Cloathing </Link></MenuItem>
+                <MenuItem onClick={handleClose}> <Link to="/electronics">Electronics </Link></MenuItem>
+                <MenuItem onClick={handleClose}> <Link to="/allproducts">Browse More </Link></MenuItem>
+
+              </Menu>
+
               <Link to="/login"><Button className={headerButton}>Login</Button></Link>
             </Box>
           }
@@ -98,6 +124,17 @@ const Header = () => {
                     <Avatar>
                       <FontAwesomeIcon icon={faList} />
                     </Avatar> Explore
+                  </MenuItem>
+                </Link>
+                <Link to="/categories">
+                  <MenuItem>
+                    <Avatar id="fade-button"
+                      aria-controls={open ? 'fade-menu' : undefined}
+                      aria-haspopup="true"
+                      aria-expanded={open ? 'true' : undefined}
+                      onClick={handleClick}>
+                      <FontAwesomeIcon icon={faList} />
+                    </Avatar> All Categories
                   </MenuItem>
                 </Link>
                 <Divider />
