@@ -5,6 +5,12 @@ import Home from './components/Home/Home/Home';
 import Footer from './components/Shared/Footer/Footer';
 import Login from './components/Login/Login/Login';
 
+import "swiper/swiper-bundle.min.css";
+import "swiper/swiper.min.css";
+import SinglePage from './components/Pages/SinglePage/SinglePage';
+
+
+
 function App() {
   return (
     <Router>
@@ -14,7 +20,6 @@ function App() {
           <Home></Home>
         </Route>
       </Switch>
-
 
       <Switch>
         <Route path="/login">
