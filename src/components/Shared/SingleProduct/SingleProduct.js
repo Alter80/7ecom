@@ -11,9 +11,7 @@ import './SingleProduct.css'
 
 const SingleProduct = (props) => {
   const { title, description, image, price, _id, rating, category } = props.product || {};
-  const handleDetails = (key) => {
 
-  }
   return (
     <Grid item xs={4} sm={4} md={3}>
       <Card className="singleProduct" sx={{ minWidth: 275, }}>
@@ -40,7 +38,8 @@ const SingleProduct = (props) => {
           <Typography variant="h5" component="div" sx={{ mb: 2 }}>
             <span style={{ color: '' }}>$</span>{price}
           </Typography>
-          <Box style={{ textDecoration: 'none' }} onClick={() => handleDetails(_id)}><Button sx={{ color: '#9c27b0' }} variant="text">View Details</Button></Box>
+          <Link to={`/products/${_id}`} className='text-decoration-none text-black'><Box style={{ textDecoration: 'none' }}><Button sx={{ color: '#9c27b0' }} variant="text">View Details</Button></Box></Link>
+
         </Box>
       </Card>
     </Grid>
