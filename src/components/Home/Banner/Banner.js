@@ -20,7 +20,7 @@ const homeMainBannerPicture3 = 'http://lezada.reactdemo.hasthemes.com/assets/ima
 const Banner = () => {
   const matches960px = useMediaQuery('(min-width:960px)');
   return (
-    <Box sx={{bgcolor: 'rgb(235, 244, 242)', boxSizing: 'border-box'}}>
+    <Box sx={{py: 4, bgcolor: 'rgb(235, 244, 242)', boxSizing: 'border-box'}}>
       <Swiper
         slidesPerView={1}
         spaceBetween={30}
