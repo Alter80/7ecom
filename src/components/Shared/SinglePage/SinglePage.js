@@ -23,7 +23,7 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import { Button, Container, Grid, Link, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router';
 
 
 SwiperCore.use([EffectCoverflow, Pagination]);

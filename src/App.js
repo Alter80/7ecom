@@ -9,8 +9,6 @@ import "swiper/swiper.min.css";
 import SinglePage from './components/Shared/SinglePage/SinglePage';
 
 
-
-
 function App() {
   return (
     <Router>
