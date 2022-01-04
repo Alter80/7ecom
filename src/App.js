@@ -7,29 +7,50 @@ import Login from './components/Login/Login/Login';
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import SinglePage from './components/Shared/SinglePage/SinglePage';
+import { createContext, useState } from 'react';
+import NotFound from './components/NotFound/NotFound';
+
+export const UserContext = createContext();
 
 
 function App() {
+  const accessToken = localStorage.getItem('accessToken');
+  const displayName = localStorage.getItem('displayName');
+  const email = localStorage.getItem('email');
+  const photoURL = localStorage.getItem('photoURL');
+  const isAdmin = localStorage.getItem('isAdmin');
+  const [loggedInUser, setLoggedInUser] = useState(accessToken ? { accessToken, displayName, email, photoURL, isAdmin } : null);
+
   return (
-    <Router>
-      <Header></Header>
-      <Switch>
+    <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <Router>
+        <Header></Header>
 
-        <Route path="/">
-          <Home></Home>
-        </Route>
+        <Switch>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
 
-        <Route exact path="/products/:id">
-          <SinglePage></SinglePage>
-        </Route>
+          <Route path="/products/:id">
+            <SinglePage></SinglePage>
+          </Route>
 
-        <Route exact path="/login">
-          <Login></Login>
-        </Route>
-      </Switch>
+          <Route path="/login">
+            <Login></Login>
+          </Route>
 
-      <Footer></Footer>
-    </Router>
+          <Route path="/Register">
+            <Login></Login>
+          </Route>
+
+          <Route path="*">
+            <NotFound></NotFound>
+          </Route>
+        </Switch>
+
+        <Footer></Footer>
+      </Router>
+    </UserContext.Provider>
   );
 }
 
