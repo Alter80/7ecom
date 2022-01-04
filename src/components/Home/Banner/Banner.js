@@ -13,14 +13,15 @@ import { Link } from 'react-router-dom';
 // install Swiper modules
 SwiperCore.use([Autoplay, Pagination]);
 
-const homeMainBannerPicture1 = 'http://lezada.reactdemo.hasthemes.com/assets/images/hero-slider/hero-slider-two/1.png';
-const homeMainBannerPicture2 = 'http://lezada.reactdemo.hasthemes.com/assets/images/hero-slider/hero-slider-two/2.png';
-const homeMainBannerPicture3 = 'http://lezada.reactdemo.hasthemes.com/assets/images/hero-slider/hero-slider-two/3.png';
+
+const homeMainBannerPicture1 = 'https://i.ibb.co/Nss6Lkv/3.png';
+const homeMainBannerPicture2 = 'https://i.ibb.co/W3yqtSf/1.png';
+const homeMainBannerPicture3 = 'https://i.ibb.co/0sYJQXG/2.png';
 
 const Banner = () => {
   const matches960px = useMediaQuery('(min-width:960px)');
   return (
-    <Box sx={{py: 4, bgcolor: 'rgb(235, 244, 242)', boxSizing: 'border-box'}}>
+    <Box sx={{ py: 4, bgcolor: 'rgb(235, 244, 242)', boxSizing: 'border-box' }}>
       <Swiper
         slidesPerView={1}
         spaceBetween={30}
@@ -29,7 +30,7 @@ const Banner = () => {
           "clickable": true,
         }}
         autoplay={{
-          "delay": 6000,
+          "delay": 5000,
           "disableOnInteraction": false
         }}
         navigation={true}
@@ -37,24 +38,24 @@ const Banner = () => {
       >
         {/* Slider Number 01 */}
         <SwiperSlide>
-          <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '70vh', maxHeight: '70vh'}}>
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '70vh', maxHeight: '70vh' }}>
             <Box>
-              <Box sx={{p: 6}}>
-                <Box sx={{display: 'flex', alignItems: 'center'}}>
-                  <Box sx={{maxWidth: '50%'}}>
-                    <Box sx={{textTransform: 'uppercase'}}>Magical London Bridge with Neil Stay</Box>
-                    <Typography component="h1" fontSize="47px" fontWeight="700">The Audi Premium Cars</Typography>
-                    <Typography component="span" sx={{textTransform: 'uppercase', fontSize: '17', fontWeight: 300}}>The AUDI AG stands for sporty vehicles, high build quality and progressive design – for “Vorsprung durch Technik.”</Typography>
+              <Box sx={{ p: 6 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Box sx={{ maxWidth: '50%' }}>
+                    <Box sx={{ textTransform: 'uppercase' }}>Get your product in Right Time</Box>
+                    <Typography component="h1" fontSize="47px" fontWeight="700">Your Fasion & Gadget Storehouse</Typography>
+                    <Typography component="span" sx={{ textTransform: 'uppercase', fontSize: '17', fontWeight: 300 }}>Don't be into trends. Don't make fashion own you, but you decide what you are, what you want to express by the way you dress and the way to live.</Typography>
                     <Box py={3}>
                       <Link to='/dashboard/myOrders'>
-                        <Button variant="contained" color="secondary" size="large">Your Orders</Button>
+                        <Button variant="contained" color="secondary" size="large">Order Now!</Button>
                       </Link>
                     </Box>
                   </Box>
                   {
                     matches960px
                     && (
-                      <Box sx={{minheight: '70vh'}}>
+                      <Box sx={{ minheight: '70vh' }}>
                         <img src={homeMainBannerPicture1} alt="" />
                       </Box>
                     )
@@ -67,24 +68,24 @@ const Banner = () => {
         {/* Slider Number 01 */}
         {/* Slider Number 02 */}
         <SwiperSlide>
-        <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '70vh', maxHeight: '70vh'}}>
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '70vh', maxHeight: '70vh' }}>
             <Box>
-              <Box sx={{p: 6}}>
-                <Box sx={{display: 'flex', alignItems: 'center'}}>
-                  <Box sx={{maxWidth: '50%'}}>
-                    <Box sx={{textTransform: 'uppercase'}}>Magical London Bridge with Neil Stay</Box>
-                    <Typography component="h1" fontSize="47px" fontWeight="700">The Audi Premium Cars</Typography>
-                    <Typography component="span" sx={{textTransform: 'uppercase', fontSize: '17', fontWeight: 300}}>The AUDI AG stands for sporty vehicles, high build quality and progressive design – for “Vorsprung durch Technik.”</Typography>
+              <Box sx={{ p: 6 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Box sx={{ maxWidth: '50%' }}>
+                    <Box sx={{ textTransform: 'uppercase' }}>Get your product in Right Time</Box>
+                    <Typography component="h1" fontSize="47px" fontWeight="700">Your Fasion & Gadget Storehouse</Typography>
+                    <Typography component="span" sx={{ textTransform: 'uppercase', fontSize: '17', fontWeight: 300 }}>Don't be into trends. Don't make fashion own you, but you decide what you are, what you want to express by the way you dress and the way to live.</Typography>
                     <Box py={3}>
                       <Link to='/dashboard/myOrders'>
-                        <Button variant="contained" color="secondary" size="large">Your Orders</Button>
+                        <Button variant="contained" color="secondary" size="large">Order Now!</Button>
                       </Link>
                     </Box>
                   </Box>
                   {
                     matches960px
                     && (
-                      <Box sx={{minheight: '70vh'}}>
+                      <Box sx={{ minheight: '70vh' }}>
                         <img src={homeMainBannerPicture2} alt="" />
                       </Box>
                     )
@@ -97,24 +98,24 @@ const Banner = () => {
         {/* Slider Number 02 */}
         {/* Slider Number 03 */}
         <SwiperSlide>
-        <Box sx={{display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '70vh', maxHeight: '70vh'}}>
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '70vh', maxHeight: '70vh' }}>
             <Box>
-              <Box sx={{p: 6}}>
-                <Box sx={{display: 'flex', alignItems: 'center'}}>
-                  <Box sx={{maxWidth: '50%'}}>
-                    <Box sx={{textTransform: 'uppercase'}}>Magical London Bridge with Neil Stay</Box>
-                    <Typography component="h1" fontSize="47px" fontWeight="700">The Audi Premium Cars</Typography>
-                    <Typography component="span" sx={{textTransform: 'uppercase', fontSize: '17', fontWeight: 300}}>The AUDI AG stands for sporty vehicles, high build quality and progressive design – for “Vorsprung durch Technik.”</Typography>
+              <Box sx={{ p: 6 }}>
+                <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                  <Box sx={{ maxWidth: '50%' }}>
+                    <Box sx={{ textTransform: 'uppercase' }}>Get your product in Right Time</Box>
+                    <Typography component="h1" fontSize="47px" fontWeight="700">Your Fasion & Gadget Storehouse</Typography>
+                    <Typography component="span" sx={{ textTransform: 'uppercase', fontSize: '17', fontWeight: 300 }}>Don't be into trends. Don't make fashion own you, but you decide what you are, what you want to express by the way you dress and the way to live.</Typography>
                     <Box py={3}>
                       <Link to='/dashboard/myOrders'>
-                        <Button variant="contained" color="secondary" size="large">Your Orders</Button>
+                        <Button variant="contained" color="secondary" size="large">Order Now!</Button>
                       </Link>
                     </Box>
                   </Box>
                   {
                     matches960px
                     && (
-                      <Box sx={{minheight: '70vh'}}>
+                      <Box sx={{ minheight: '70vh' }}>
                         <img src={homeMainBannerPicture3} alt="" />
                       </Box>
                     )
