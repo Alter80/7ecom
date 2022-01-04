@@ -1,9 +1,11 @@
-import { faBars, faHome, faList, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faHome, faList, faSignInAlt, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Avatar, Box, Button, Divider, Fade, IconButton, Menu, MenuItem, Tooltip, useMediaQuery } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import React, { useState } from 'react';
+import { getAuth, signOut } from 'firebase/auth';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../../App';
 
 const headerStyles = makeStyles({
   headerButton: {
@@ -12,6 +14,8 @@ const headerStyles = makeStyles({
 });
 
 const Header = () => {
+  // Getting data from parent component
+  const [loggedInUser, setLoggedInUser] = useContext(UserContext);
   const matches960px = useMediaQuery('(min-width:960px)');
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -21,6 +25,22 @@ const Header = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const handleLogOut = () => {
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      // Sign-out successful.
+      setLoggedInUser(null);
+      localStorage.removeItem('accessToken');
+      localStorage.removeItem('displayName');
+      localStorage.removeItem('email');
+      localStorage.removeItem('photoURL');
+      alert("Logged out successfully!");
+    }).catch((error) => {
+      // An error happened.
+      alert(error);
+    });
+  }
 
   const { headerButton } = headerStyles();
   return (
@@ -67,7 +87,17 @@ const Header = () => {
 
               </Menu>
 
-              <Link to="/login"><Button className={headerButton}>Login</Button></Link>
+              {
+                !loggedInUser &&
+                <Link to="/login"><Button className={headerButton}>Login</Button></Link>
+              }
+              {
+                loggedInUser &&
+                <>
+                  <Box sx={{px: 1, fontWeight: 500}}>{loggedInUser.displayName}</Box>
+                  <Button className={headerButton} onClick={handleLogOut}>Logout</Button>
+                </>
+              }
             </Box>
           }
           {
@@ -138,13 +168,29 @@ const Header = () => {
                   </MenuItem>
                 </Link>
                 <Divider />
-                <Link to="/login">
-                  <MenuItem>
-                    <Avatar>
-                      <FontAwesomeIcon icon={faSignInAlt} />
-                    </Avatar> Login
-                  </MenuItem>
-                </Link>
+                {
+                  !loggedInUser &&
+                  <Link to="/login">
+                    <MenuItem>
+                      <Avatar>
+                        <FontAwesomeIcon icon={faSignInAlt} />
+                      </Avatar> Login
+                    </MenuItem>
+                  </Link>
+                }
+                {
+                  loggedInUser &&
+                  <>
+                    <MenuItem>
+                      <Avatar/> {loggedInUser.displayName}
+                    </MenuItem>
+                    <MenuItem onClick={handleLogOut}>
+                      <Avatar>
+                        <FontAwesomeIcon icon={faSignOutAlt} />
+                      </Avatar> Logout
+                    </MenuItem>
+                  </>
+                }
               </Menu>
             </Box>
           }
