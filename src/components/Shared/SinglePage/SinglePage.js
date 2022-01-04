@@ -23,6 +23,7 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import { Button, Container, Grid, Link, Typography } from '@mui/material';
 import { Box } from '@mui/system';
+import { useParams } from 'react-router-dom';
 
 
 SwiperCore.use([EffectCoverflow, Pagination]);
@@ -37,7 +38,20 @@ const Item = styled(Paper)(({ theme }) => ({
 
 
 const SinglePage = () => {
+    const { id } = useParams();
     const [counter, setCounter] = useState(0)
+    const [product, setProduct] = useState({})
+
+
+    // data fetch
+    React.useEffect(() => {
+        const url = `https://lit-bayou-30151.herokuapp.com/products/${id}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setProduct(data));
+    }, [])
+
+    const { title, description, image, price, rating, category, img1, img2 } = product;
 
     const handleIncrement = () => {
         setCounter(counter + 1)
@@ -74,10 +88,10 @@ const SinglePage = () => {
                                         className="mySwiper"
                                     >
                                         <SwiperSlide  >
-                                            <img className='img-fluid' src="http://lezada.reactdemo.hasthemes.com/assets/images/product/fashion/9.jpg" alt="" />
+                                            <img className='img-fluid' src={img1} alt="" />
                                         </SwiperSlide>
                                         <SwiperSlide>
-                                            <img className='img-fluid' src="http://lezada.reactdemo.hasthemes.com/assets/images/product/fashion/10.jpg" alt="" />
+                                            <img className='img-fluid' src={img2} alt="" />
                                         </SwiperSlide>
 
                                     </Swiper>
@@ -88,13 +102,13 @@ const SinglePage = () => {
                             <Item style={{ boxShadow: "none" }} className='align'>
                                 <Rating size="small" name="read-only" value={3} readOnly />
                                 <Typography variant="h4" gutterBottom component="div">
-                                    Lorem ipsum fashion nine
+                                    {title}
                                 </Typography>
                                 <Typography variant="h6" gutterBottom component="div">
-                                    $28.00
+                                    ${price}
                                 </Typography>
                                 <Typography className='align' variant="subtitle1" gutterBottom component="div">
-                                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.
+                                    {description}
                                 </Typography>
 
                                 <Box sx={{

@@ -16,19 +16,16 @@ function App() {
     <Router>
       <Header></Header>
       <Switch>
+
         <Route path="/">
           <Home></Home>
         </Route>
-      </Switch>
 
-      <Switch>
-        <Route path="/products/:id">
+        <Route exact path="/products/:id">
           <SinglePage></SinglePage>
         </Route>
-      </Switch>
 
-      <Switch>
-        <Route path="/login">
+        <Route exact path="/login">
           <Login></Login>
         </Route>
       </Switch>
